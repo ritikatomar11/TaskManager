@@ -1,15 +1,7 @@
-import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
-
+import { app } from "./app.js"
 dotenv.config(); 
-const app = express(); 
-
-app.use(express.json()); 
-
-app.get("/" , (req , res)=>{
-    res.send("Hello"); 
-})
 
 const connectDB = async()=>{
     try {
