@@ -9,9 +9,11 @@ const taskSchema = new mongoose.Schema(
         status:{
             type:String , 
             enum : ["To Do" , "In Progress" , "Done"] , 
-            required:true
+            required:true , 
+            default:"To Do"
+
         } , 
-        userId:{
+        user:{
             type:mongoose.Schema.Types.ObjectId , 
             ref:"User" ,
             required:true
