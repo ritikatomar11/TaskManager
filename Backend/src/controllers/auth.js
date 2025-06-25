@@ -55,7 +55,7 @@ export const loginUser  = async(req , res)=>{
         }
 
         const options  = {
-            httpOnly : true , 
+            // httpOnly : true , 
             secure : true 
         }
         

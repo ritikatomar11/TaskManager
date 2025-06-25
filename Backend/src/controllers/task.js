@@ -10,12 +10,12 @@ const allowedTransitions = {
 
 export const getTasks = async(req , res)=>{
     try{
-        const {status} = req.body; 
-        const tasks = await Task.find({user: req.user._id}).find({status}).sort({createdAt: -1});
+        const tasks = await Task.find({user: req.user._id}).sort({createdAt: -1});
+        console.log("Tasks fetched:", tasks);
         if(!tasks){
             return res.status(404).json({message : "No tasks found"}); 
         }
-        return res.status(200).json("tasks " ,tasks);
+        return res.status(200).json({ message: "Task fetched successfully",tasks: tasks});
     }catch(error){
         console.error("Error fetching tasks:", error);
         res.status(500).json({ message: "Internal server error" });
